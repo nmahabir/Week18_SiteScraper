@@ -1,0 +1,32 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <a class="navbar-brand" href="#">SiteScraper</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+    <div class="navbar-nav">
+      <a class="nav-item nav-link active" href="#">Home <span class="sr-only">(current)</span></a>
+      <a class="nav-item nav-link" href="#">Saved Articles</a>
+      <button class="nav-item nav-link" href="#">Scrape New Articles</button>
+      <button class="nav-item nav-link" href="#">Clear</button>
+    </div>
+  </div>
+</nav>
+
+<div class="jumbotron jumbotron-fluid">
+  <div class="container">
+    <h1 class="display-4">Site Scraper</h1>
+    <p class="lead">New York Times Travel Section Edition.</p>
+  </div>
+</div>
+
+<div class="card">
+  <div class="card-header">
+    {{title}}
+  </div>
+  <div class="card-body">
+    {{!-- <h5 class="card-title">{{link}}</h5> --}}
+    <p class="card-text">{{summary}}</p>
+    <a href="#" class="btn btn-primary">{{link}}/a>
+  </div>
+</div>

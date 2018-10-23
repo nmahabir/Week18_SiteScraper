@@ -41,8 +41,9 @@ app.get("/scrape", function(req, res) {
     // Then, we load that into cheerio and save it to $ for a shorthand selector
     var $ = cheerio.load(response.data);
     // article.css-180b3ld
+    console.log(response.data);
     // 3Now, we grab every h2 within an article tag, and do the following:
-    $("article.story-body").each(function(i, element) {
+    $(".story-body").each(function(i, element) {
       // Save an empty result object
       var result = {};
 
@@ -55,7 +56,7 @@ app.get("/scrape", function(req, res) {
         .children("a")
         .attr("href");
       result.summary = $(this)
-        .children("p.summary")
+        .children(".summary")
         .text()
         .trim();
       console.log(result);
@@ -66,14 +67,15 @@ app.get("/scrape", function(req, res) {
           // View the added result in the console
           console.log(dbArticle);
         })
-        .catch(function(err) {
-          // If an error occurred, send it to the client
-          return res.json(err);
-        });
+        // .catch(function(err) {
+        //   // If an error occurred, send it to the client
+        // res.json(err);
+        // });
     });
 
     // If we were able to successfully scrape and save an Article, send a message to the client
-    res.send("Scrape Complete");
+    // res.send("Scrape Complete");
+    res.render("index");
   });
 });
 
