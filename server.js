@@ -45,7 +45,7 @@ mongoose.connect(
 // A GET route to render the index
 
 app.get("/", function(req, res) {
-  res.render("index")
+  res.render("index");
 })
 
 // A GET route for scraping the NYTimes website
@@ -80,16 +80,17 @@ app.get("/scrape", function(req, res) {
         .then(function(dbArticle) {
           // View the added result in the console
           console.log("DB Article: " + dbArticle);
+          res.render("index", {articles: dbArticle})
         })
-        // .catch(function(err) {
-        //   // If an error occurred, send it to the client
-        // res.json(err);
-        // });
+        .catch(function(err) {
+          // If an error occurred, send it to the client
+        res.json(err);
+        });
     });
 
     // If we were able to successfully scrape and save an Article, send a message to the client
-    // res.send("Scrape Complete");
-    res.render("index");
+    res.send("Scrape Complete");
+    // res.render("index", {articles: dbArticle.title}, {summary: dbArticle.summary}, {link: dbArticle.link});
   });
 });
 

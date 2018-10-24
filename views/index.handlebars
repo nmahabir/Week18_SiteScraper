@@ -21,12 +21,14 @@
 </div>
 
 <div class="card">
+  {{#each articles}}
   <div class="card-header">
-    {{title}}
+    {{this.title}}
   </div>
   <div class="card-body">
     {{!-- <h5 class="card-title">{{link}}</h5> --}}
-    <p class="card-text">{{summary}}</p>
-    <a href="#" class="btn btn-primary">{{link}}/a>
+    <p class="card-text">{{this.summary}}</p>
+    <a href="#" class="btn btn-primary">{{this.link}}/a>
   </div>
+  {{/each}}
 </div>
