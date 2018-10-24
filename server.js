@@ -79,17 +79,17 @@ app.get("/scrape", function(req, res) {
         .create(result)
         .then(function(dbArticle) {
           // View the added result in the console
-          console.log("DB Article: " + dbArticle);
+          // console.log("DB Article: " + dbArticle);
           res.render("index", {articles: dbArticle})
         })
-        .catch(function(err) {
-          // If an error occurred, send it to the client
-        res.json(err);
-        });
+        // .catch(function(err) {
+        //   // If an error occurred, send it to the client
+        // res.json(err);
+        // });
     });
 
     // If we were able to successfully scrape and save an Article, send a message to the client
-    res.send("Scrape Complete");
+    // res.send("Scrape Complete");
     // res.render("index", {articles: dbArticle.title}, {summary: dbArticle.summary}, {link: dbArticle.link});
   });
 });
@@ -103,7 +103,7 @@ app.get("/articles", function(req, res) {
   db.article
     .find({})
     .then(function(dbArticle) {
-      res.json(dbArticle);
+      res.render("index", {articles: dbArticle});
     })
     .catch(function(err) {
       res.json(err);
