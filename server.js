@@ -16,6 +16,13 @@ var PORT = 3000;
 // Initialize Express
 var app = express();
 
+// Handlebars
+var exphbs = require("express-handlebars");
+
+
+app.engine("handlebars", exphbs({ defaultLayout: "main" }));
+app.set("view engine", "handlebars");
+
 // Configure middleware
 
 // Use morgan logger for logging requests
@@ -33,6 +40,13 @@ mongoose.connect(
 );
 
 // Routes
+
+
+// A GET route to render the index
+
+app.get("/", function(req, res) {
+  res.render("index")
+})
 
 // A GET route for scraping the NYTimes website
 app.get("/scrape", function(req, res) {
